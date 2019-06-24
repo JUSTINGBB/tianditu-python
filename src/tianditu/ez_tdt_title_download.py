@@ -106,7 +106,7 @@ def run_spider(z, minx, maxx, miny, maxy):
     minxy = lng_lat_to_title_index(xy[0], xy[1], z)
     maxxy = lng_lat_to_title_index(xxyy[0], xxyy[1], z)
     xr = range(minxy[0] - 1, maxxy[0] + 1)
-    yr = range(minxy[1] - 1, maxxy[1] + 1)
+    yr = range(maxxy[1] - 1, minxy[1] + 1)#由于切片是从左上角往右下角排列的，y实际相反大小互调
     download_pic(xr, yr, z)
     merge_pic(xr, yr, z)
 
